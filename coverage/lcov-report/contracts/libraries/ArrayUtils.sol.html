@@ -1,0 +1,803 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts\Libraries\ArrayUtils.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">contracts/Libraries/</a> ArrayUtils.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">24.59% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>15/61</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">12.5% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>4/32</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">18.75% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>3/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">24.29% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>17/70</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">485×</span>
+<span class="cline-any cline-yes">485×</span>
+<span class="cline-any cline-yes">1359×</span>
+<span class="cline-any cline-yes">97×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">388×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: Unlicensed
+&nbsp;
+pragma solidity ^0.8.0;
+&nbsp;
+// Reference: https://github.com/cryptofinlabs/cryptofin-solidity/blob/master/contracts/array-utils/AddressArrayUtils.sol
+library ArrayUtils {
+  /**
+   * Deletes address at index and fills the spot with the last address.
+   * Order is preserved.
+   */
+  // solhint-disable-next-line var-name-mixedcase
+<span class="fstat-no" title="function not covered" >  function sPopAddress(address[] storage A, uint index) internal {</span>
+<span class="cstat-no" title="statement not covered" >    uint length = A.length;</span>
+<span class="cstat-no" title="statement not covered" >    if (index &gt;= length) {</span>
+<span class="cstat-no" title="statement not covered" >      revert("Error: index out of bounds")</span>;
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    for (uint i = index; i &lt; length - 1; i++) {</span>
+      A[i] = A[i + 1];
+    }
+<span class="cstat-no" title="statement not covered" >    A.pop()</span>;
+  }
+&nbsp;
+  // solhint-disable-next-line var-name-mixedcase
+<span class="fstat-no" title="function not covered" >  function sPopUint256(uint[] storage A, uint index) internal {</span>
+<span class="cstat-no" title="statement not covered" >    uint length = A.length;</span>
+<span class="cstat-no" title="statement not covered" >    if (index &gt;= length) {</span>
+<span class="cstat-no" title="statement not covered" >      revert("Error: index out of bounds")</span>;
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    for (uint i = index; i &lt; length - 1; i++) {</span>
+      A[i] = A[i + 1];
+    }
+<span class="cstat-no" title="statement not covered" >    A.pop()</span>;
+  }
+&nbsp;
+  // solhint-disable-next-line var-name-mixedcase
+<span class="fstat-no" title="function not covered" >  function sumOfMArrays(</span>
+    uint[] memory A,
+    uint[] memory B
+  ) internal pure returns (uint[] memory sum) {
+    sum = new uint[](A.length);
+<span class="cstat-no" title="statement not covered" >    for (uint i = 0; i &lt; A.length; i++) {</span>
+      sum[i] = A[i] + B[i];
+    }
+<span class="cstat-no" title="statement not covered" >    return sum;</span>
+  }
+&nbsp;
+  /**
+   * Finds the index of the first occurrence of the given element.
+   * @param A The input array to search
+   * @param a The value to find
+   * @return Returns (index and isIn) for the first occurrence starting from index 0
+   */
+  function indexOf(address[] memory A, address a) internal pure returns (uint, bool) {
+    uint length = A.length;
+    for (uint i = 0; i &lt; length; i++) {
+      if (A[i] == a) {
+        return (i, true);
+      }
+    }
+    return (type(uint).max, false);
+  }
+&nbsp;
+  /**
+   * Returns true if the value is present in the list. Uses indexOf internally.
+   * @param A The input array to search
+   * @param a The value to find
+   * @return Returns isIn for the first occurrence starting from index 0
+   */
+<span class="fstat-no" title="function not covered" >  function contains(address[] memory A, address a) internal pure returns (bool) {</span>
+<span class="cstat-no" title="statement not covered" >    (, bool isIn) = indexOf(A, a);</span>
+<span class="cstat-no" title="statement not covered" >    return isIn;</span>
+  }
+&nbsp;
+  /**
+   * Returns true if there are 2 elements that are the same in an array
+   * @param A The input array to search
+   * @return Returns boolean for the first occurrence of a duplicate
+   */
+<span class="fstat-no" title="function not covered" >  function hasDuplicate(address[] memory A) internal pure returns (bool) {</span>
+<span class="cstat-no" title="statement not covered" >    require(A.length &gt; 0, "A is empty")</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    for (uint i = 0; i &lt; A.length - 1; i++) {</span>
+<span class="cstat-no" title="statement not covered" >      address current = A[i];</span>
+<span class="cstat-no" title="statement not covered" >      for (uint j = i + 1; j &lt; A.length; j++) {</span>
+<span class="cstat-no" title="statement not covered" >        if (current == A[j]) {</span>
+<span class="cstat-no" title="statement not covered" >          return true;</span>
+        }
+      }
+    }
+<span class="cstat-no" title="statement not covered" >    return false;</span>
+  }
+&nbsp;
+  /**
+   * @param A The input array to search
+   * @param a The address to remove
+   * @return Returns the array with the object removed.
+   */
+  function remove(
+    address[] memory A,
+    address a
+  ) internal pure returns (address[] memory) {
+    (uint index, bool isIn) = indexOf(A, a);
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!isIn) {
+<span class="cstat-no" title="statement not covered" >      revert("Address not in array.")</span>;
+    } else {
+      (address[] memory _A, ) = pop(A, index);
+      return _A;
+    }
+  }
+&nbsp;
+  /**
+   * @param A The input array to search
+   * @param a The address to remove
+   */
+<span class="fstat-no" title="function not covered" >  function removeStorage(address[] storage A, address a) internal {</span>
+<span class="cstat-no" title="statement not covered" >    (uint index, bool isIn) = indexOf(A, a);</span>
+<span class="cstat-no" title="statement not covered" >    if (!isIn) {</span>
+<span class="cstat-no" title="statement not covered" >      revert("Address not in array.")</span>;
+    } else {
+<span class="cstat-no" title="statement not covered" >      uint lastIndex = A.length - 1;</span> // If the array would be empty, the previous line would throw, so no underflow here
+<span class="cstat-no" title="statement not covered" >      if (index != lastIndex) {</span>
+        A[index] = A[lastIndex];
+      }
+<span class="cstat-no" title="statement not covered" >      A.pop()</span>;
+    }
+  }
+&nbsp;
+  /**
+   * Removes specified index from array
+   * @param A The input array to search
+   * @param index The index to remove
+   * @return Returns the new array and the removed entry
+   */
+  function pop(
+    address[] memory A,
+    uint index
+  ) internal pure returns (address[] memory, address) {
+    uint length = A.length;
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(index &lt; A.length, "Index must be &lt; A length");
+    address[] memory newAddresses = new address[](length - 1);
+    for (uint i = 0; i &lt; index; i++) {
+      newAddresses[i] = A[i];
+    }
+    for (uint j = index + 1; j &lt; length; j++) {
+      newAddresses[j - 1] = A[j];
+    }
+    return (newAddresses, A[index]);
+  }
+&nbsp;
+  /**
+   * Returns the combination of the two arrays
+   * @param A The first array
+   * @param B The second array
+   * @return Returns A extended by B
+   */
+<span class="fstat-no" title="function not covered" >  function extend(</span>
+    address[] memory A,
+    address[] memory B
+  ) internal pure returns (address[] memory) {
+<span class="cstat-no" title="statement not covered" >    uint aLength = A.length;</span>
+<span class="cstat-no" title="statement not covered" >    uint bLength = B.length;</span>
+<span class="cstat-no" title="statement not covered" >    address[] memory newAddresses = new address[](aLength + bLength);</span>
+<span class="cstat-no" title="statement not covered" >    for (uint i = 0; i &lt; aLength; i++) {</span>
+      newAddresses[i] = A[i];
+    }
+<span class="cstat-no" title="statement not covered" >    for (uint j = 0; j &lt; bLength; j++) {</span>
+      newAddresses[aLength + j] = B[j];
+    }
+<span class="cstat-no" title="statement not covered" >    return newAddresses;</span>
+  }
+&nbsp;
+  /**
+   * Validate that address and uint array lengths match. Validate address array is not empty
+   * and contains no duplicate elements.
+   *
+   * @param A         Array of addresses
+   * @param B         Array of uint
+   */
+<span class="fstat-no" title="function not covered" >  function validatePairsWithArray(address[] memory A, uint[] memory B) internal pure {</span>
+<span class="cstat-no" title="statement not covered" >    require(A.length == B.length, "Array length mismatch")</span>;
+<span class="cstat-no" title="statement not covered" >    _validateLengthAndUniqueness(A)</span>;
+  }
+&nbsp;
+  /**
+   * Validate that address and bool array lengths match. Validate address array is not empty
+   * and contains no duplicate elements.
+   *
+   * @param A         Array of addresses
+   * @param B         Array of bool
+   */
+<span class="fstat-no" title="function not covered" >  function validatePairsWithArray(address[] memory A, bool[] memory B) internal pure {</span>
+<span class="cstat-no" title="statement not covered" >    require(A.length == B.length, "Array length mismatch")</span>;
+<span class="cstat-no" title="statement not covered" >    _validateLengthAndUniqueness(A)</span>;
+  }
+&nbsp;
+  /**
+   * Validate that address and string array lengths match. Validate address array is not empty
+   * and contains no duplicate elements.
+   *
+   * @param A         Array of addresses
+   * @param B         Array of strings
+   */
+<span class="fstat-no" title="function not covered" >  function validatePairsWithArray(address[] memory A, string[] memory B) internal pure {</span>
+<span class="cstat-no" title="statement not covered" >    require(A.length == B.length, "Array length mismatch")</span>;
+<span class="cstat-no" title="statement not covered" >    _validateLengthAndUniqueness(A)</span>;
+  }
+&nbsp;
+  /**
+   * Validate that address array lengths match, and calling address array are not empty
+   * and contain no duplicate elements.
+   *
+   * @param A         Array of addresses
+   * @param B         Array of addresses
+   */
+<span class="fstat-no" title="function not covered" >  function validatePairsWithArray(</span>
+    address[] memory A,
+    address[] memory B
+  ) internal pure {
+<span class="cstat-no" title="statement not covered" >    require(A.length == B.length, "Array length mismatch")</span>;
+<span class="cstat-no" title="statement not covered" >    _validateLengthAndUniqueness(A)</span>;
+  }
+&nbsp;
+  /**
+   * Validate that address and bytes array lengths match. Validate address array is not empty
+   * and contains no duplicate elements.
+   *
+   * @param A         Array of addresses
+   * @param B         Array of bytes
+   */
+<span class="fstat-no" title="function not covered" >  function validatePairsWithArray(address[] memory A, bytes[] memory B) internal pure {</span>
+<span class="cstat-no" title="statement not covered" >    require(A.length == B.length, "Array length mismatch")</span>;
+<span class="cstat-no" title="statement not covered" >    _validateLengthAndUniqueness(A)</span>;
+  }
+&nbsp;
+  /**
+   * Validate address array is not empty and contains no duplicate elements.
+   *
+   * @param A          Array of addresses
+   */
+<span class="fstat-no" title="function not covered" >  function _validateLengthAndUniqueness(address[] memory A) internal pure {</span>
+<span class="cstat-no" title="statement not covered" >    require(A.length &gt; 0, "Array length must be &gt; 0")</span>;
+<span class="cstat-no" title="statement not covered" >    require(!hasDuplicate(A), "Cannot duplicate addresses")</span>;
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Feb 13 2025 20:12:38 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
