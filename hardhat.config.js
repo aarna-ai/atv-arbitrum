@@ -46,7 +46,7 @@ module.exports = {
     hardhat: {
 
       forking: {
-        url: 'https://site1.moralis-nodes.com/arbitrum/6b2108bfde3944cdbd5a45a8ae941633',
+        url: 'https://arbitrum.meowrpc.com',
       },
       accounts: {
         mnemonic: 'message echo globe flower across fantasy wet husband muffin basket used gaze',
